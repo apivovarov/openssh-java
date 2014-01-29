@@ -43,7 +43,7 @@ Releases are in Maven Central:
 ```xml
 <dependency>
   <groupId>com.github.fommil</groupId>
-  <artifactId>openssh-java</artifactId>
+  <artifactId>openssh</artifactId>
   <version>1.0</version>
 </dependency>
 ```
