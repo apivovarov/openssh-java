@@ -34,8 +34,9 @@ public class SshRsaCrypto {
         checkArgument(in.read() == 2, "no INTEGER marker");
         int length = in.read();
         if (length >= 0x80) {
-            byte[] extended = new byte[length & 0x7f];
-            in.readFully(extended);
+            byte[] extended = new byte[4];
+            int bytesToRead = length & 0x7f;
+            in.readFully(extended, 4 - bytesToRead, bytesToRead);
             length = new BigInteger(extended).intValue();
         }
         byte[] data = new byte[length];
